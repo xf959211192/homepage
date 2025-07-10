@@ -1,0 +1,46 @@
+<?php
+// 数据库配置文件模板
+// 请复制此文件为 config.php 并填入您的数据库信息
+
+// 数据库连接配置
+$host = 'localhost';        // 数据库主机地址
+$username = 'your_username'; // 数据库用户名
+$password = 'your_password'; // 数据库密码
+$database = 'your_database'; // 数据库名称
+
+// 创建数据库连接
+$conn = mysqli_connect($host, $username, $password, $database);
+
+// 检查连接
+if (!$conn) {
+    die("连接失败: " . mysqli_connect_error());
+}
+
+// 设置字符集
+mysqli_set_charset($conn, "utf8mb4");
+
+// 管理员认证配置
+$admin_username = 'admin';          // 管理员用户名
+$admin_password = 'your_password';  // 管理员密码（建议使用强密码）
+
+// 网站配置
+$site_title = '晓风的个人主页';
+$site_description = '精选优质工具和资源导航，提升工作效率';
+$site_url = 'https://yourdomain.com';
+$contact_email = 'your_email@example.com';
+
+// 其他配置
+$timezone = 'Asia/Shanghai';        // 时区设置
+date_default_timezone_set($timezone);
+
+// 调试模式（生产环境请设置为 false）
+$debug_mode = false;
+
+if ($debug_mode) {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+} else {
+    error_reporting(0);
+    ini_set('display_errors', 0);
+}
+?>

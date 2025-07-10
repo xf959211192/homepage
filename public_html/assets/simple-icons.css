@@ -1,0 +1,85 @@
+/* 简单图标样式 - 使用CSS伪元素 */
+
+.simple-icon {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: var(--accent);
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* 根据emoji生成对应的图标样式 */
+.simple-icon[data-emoji="🎬"]::before { content: "▶"; background: #e50914; }
+.simple-icon[data-emoji="🔧"]::before { content: "⚙"; background: #6366f1; }
+.simple-icon[data-emoji="🔄"]::before { content: "↻"; background: #10b981; }
+.simple-icon[data-emoji="🔁"]::before { content: "⇄"; background: #10b981; }
+.simple-icon[data-emoji="🧾"]::before { content: "📄"; background: #f59e0b; }
+.simple-icon[data-emoji="📌"]::before { content: "🏠"; background: #3b82f6; }
+.simple-icon[data-emoji="🐱"]::before { content: "G"; background: #24292e; }
+.simple-icon[data-emoji="📝"]::before { content: "N"; background: #000; }
+.simple-icon[data-emoji="🎨"]::before { content: "F"; background: #f24e1e; }
+.simple-icon[data-emoji="💻"]::before { content: "C"; background: #007acc; }
+.simple-icon[data-emoji="🔍"]::before { content: "G"; background: #4285f4; }
+.simple-icon[data-emoji="📚"]::before { content: "M"; background: #ff6b35; }
+.simple-icon[data-emoji="🎯"]::before { content: "?"; background: #00d4aa; }
+.simple-icon[data-emoji="🌈"]::before { content: "C"; background: #ff6b6b; }
+.simple-icon[data-emoji="📊"]::before { content: "A"; background: #ff6f00; }
+.simple-icon[data-emoji="☁️"]::before { content: "C"; background: #f38020; }
+.simple-icon[data-emoji="🐳"]::before { content: "D"; background: #2496ed; }
+.simple-icon[data-emoji="📦"]::before { content: "N"; background: #cb3837; }
+.simple-icon[data-emoji="🎵"]::before { content: "S"; background: #1db954; }
+.simple-icon[data-emoji="📺"]::before { content: "Y"; background: #ff0000; }
+.simple-icon[data-emoji="💬"]::before { content: "D"; background: #5865f2; }
+.simple-icon[data-emoji="📧"]::before { content: "G"; background: #ea4335; }
+.simple-icon[data-emoji="🗂️"]::before { content: "D"; background: #0061ff; }
+.simple-icon[data-emoji="⚡"]::before { content: "V"; background: #000; }
+.simple-icon[data-emoji="🔤"]::before { content: "F"; background: #4285f4; }
+.simple-icon[data-emoji="🧮"]::before { content: "="; background: #6366f1; }
+.simple-icon[data-emoji="🌐"]::before { content: "T"; background: #4285f4; }
+
+.simple-icon::before {
+  content: attr(data-emoji);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+/* 默认样式 */
+.simple-icon:not([data-emoji])::before {
+  content: "🔗";
+  background: var(--accent);
+}
+
+/* 悬停效果 */
+.simple-icon:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* 在link-icon中的样式调整 */
+.link-icon .simple-icon {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.link-icon .simple-icon::before {
+  font-size: 18px;
+}
